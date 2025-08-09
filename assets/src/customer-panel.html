@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Panel - ByteBunny</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="customer-panel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="../imgs/favicon.ico">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="../imgs/logo.png" alt="ByteBunny Logo" class="logo-img">
+                <span class="logo-text">ByteBunny</span>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="../../index.html" class="nav-link">Home</a></li>
+                <li><a href="../../index.html#features" class="nav-link">Features</a></li>
+                <li><a href="../../index.html#programs" class="nav-link">Programs</a></li>
+                <li><a href="../../index.html#packages" class="nav-link">Packages</a></li>
+                <li><a href="../../index.html#showcase" class="nav-link">Showcase</a></li>
+                <li><a href="../../index.html#community" class="nav-link">Community</a></li>
+                <li><a href="../../index.html#roadmap" class="nav-link">Roadmap</a></li>
+                <li><a href="../../index.html#team" class="nav-link">Team</a></li>
+                <li><a href="customer-panel.html" class="nav-link active">Customer Panel</a></li>
+            </ul>
+            
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Customer Panel Container -->
+    <div class="customer-panel-container">
+        <!-- Sidebar -->
+        <aside class="panel-sidebar">
+            <div class="user-profile">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="user-info">
+                    <h3 id="userName">Loading...</h3>
+                    <p id="userEmail">Loading...</p>
+                </div>
+            </div>
+            
+            <nav class="panel-nav">
+                <a href="#overview" class="panel-nav-link active" data-section="overview">
+                    <i class="fas fa-tachometer-alt"></i>
+                    Overview
+                </a>
+                <a href="#licenses" class="panel-nav-link" data-section="licenses">
+                    <i class="fas fa-key"></i>
+                    Licenses
+                </a>
+                <a href="#downloads" class="panel-nav-link" data-section="downloads">
+                    <i class="fas fa-download"></i>
+                    Downloads
+                </a>
+                <a href="#billing" class="panel-nav-link" data-section="billing">
+                    <i class="fas fa-credit-card"></i>
+                    Billing
+                </a>
+                <a href="#settings" class="panel-nav-link" data-section="settings">
+                    <i class="fas fa-cog"></i>
+                    Settings
+                </a>
+                <a href="#support" class="panel-nav-link" data-section="support">
+                    <i class="fas fa-headset"></i>
+                    Support
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="panel-main">
+            <!-- Overview Section -->
+            <section id="overview" class="panel-section active">
+                <div class="section-header">
+                    <h2>Account Overview</h2>
+                    <p>Welcome back! Here's your account summary.</p>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-key"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="activeLicenses">0</h3>
+                            <p>Active Licenses</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalDownloads">0</h3>
+                            <p>Total Downloads</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="memberSince">Loading...</h3>
+                            <p>Member Since</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="lastLogin">Loading...</h3>
+                            <p>Last Login</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="recent-activity">
+                    <h3>Recent Activity</h3>
+                    <div id="activityList" class="activity-list">
+                        <!-- Activity items will be loaded here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Licenses Section -->
+            <section id="licenses" class="panel-section">
+                <div class="section-header">
+                    <h2>My Licenses</h2>
+                    <p>Manage your ByteBunny licenses and view their status.</p>
+                </div>
+                
+                <div id="licensesList" class="licenses-grid">
+                    <!-- License cards will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Downloads Section -->
+            <section id="downloads" class="panel-section">
+                <div class="section-header">
+                    <h2>Downloads</h2>
+                    <p>Access your purchased software and updates.</p>
+                </div>
+                
+                <div id="downloadsList" class="downloads-grid">
+                    <!-- Download items will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Billing Section -->
+            <section id="billing" class="panel-section">
+                <div class="section-header">
+                    <h2>Billing & Orders</h2>
+                    <p>View your purchase history and billing information.</p>
+                </div>
+                
+                <div class="billing-content">
+                    <div class="billing-card">
+                        <h3>Payment Method</h3>
+                        <p>All payments are processed through our Discord server for security and convenience.</p>
+                        <button class="btn btn-primary" onclick="openDiscordSupport()">
+                            <i class="fab fa-discord"></i>
+                            Contact for Billing
+                        </button>
+                    </div>
+                    
+                    <div id="orderHistory" class="order-history">
+                        <h3>Order History</h3>
+                        <!-- Order history will be loaded here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="settings" class="panel-section">
+                <div class="section-header">
+                    <h2>Account Settings</h2>
+                    <p>Manage your account preferences and security.</p>
+                </div>
+                
+                <div class="settings-grid">
+                    <div class="settings-card">
+                        <h3>Profile Information</h3>
+                        <form id="profileForm">
+                            <div class="form-group">
+                                <label for="displayName">Display Name</label>
+                                <input type="text" id="displayName" name="displayName" placeholder="Your display name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="your.email@example.com">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Update Profile</button>
+                        </form>
+                    </div>
+                    
+                    <div class="settings-card">
+                        <h3>Preferences</h3>
+                        <div class="preference-item">
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="emailNotifications">
+                                <span class="slider"></span>
+                            </label>
+                            <div class="preference-info">
+                                <h4>Email Notifications</h4>
+                                <p>Receive updates about your licenses and new releases</p>
+                            </div>
+                        </div>
+                        
+                        <div class="preference-item">
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="autoDownload">
+                                <span class="slider"></span>
+                            </label>
+                            <div class="preference-info">
+                                <h4>Auto Download Updates</h4>
+                                <p>Automatically download software updates when available</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Support Section -->
+            <section id="support" class="panel-section">
+                <div class="section-header">
+                    <h2>Support</h2>
+                    <p>Get help with your ByteBunny products and services.</p>
+                </div>
+                
+                <div class="support-grid">
+                    <div class="support-card">
+                        <div class="support-icon">
+                            <i class="fab fa-discord"></i>
+                        </div>
+                        <h3>Discord Support</h3>
+                        <p>Join our Discord server for live support and community help.</p>
+                        <button class="btn btn-primary" onclick="openDiscordSupport()">
+                            Join Discord
+                        </button>
+                    </div>
+                    
+                    <div class="support-card">
+                        <div class="support-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>Documentation</h3>
+                        <p>Browse our comprehensive guides and documentation.</p>
+                        <button class="btn btn-secondary">
+                            View Docs
+                        </button>
+                    </div>
+                    
+                    <div class="support-card">
+                        <div class="support-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <h3>FAQ</h3>
+                        <p>Find answers to frequently asked questions.</p>
+                        <button class="btn btn-secondary">
+                            View FAQ
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Loading...</p>
+        </div>
+    </div>
+
+    <script src="customer-panel.js"></script>
+</body>
+</html>

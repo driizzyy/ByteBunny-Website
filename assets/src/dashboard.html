@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Dashboard - ByteBunny</title>
+    <link rel="icon" href="../imgs/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <!-- Global Animated Background -->
+    <div class="global-background">
+        <div class="global-floating-element"></div>
+        <div class="global-floating-element"></div>
+        <div class="global-floating-element"></div>
+        <div class="global-floating-element"></div>
+        <div class="global-floating-element"></div>
+        <div class="global-floating-element"></div>
+        <div class="global-floating-element"></div>
+        <div class="global-floating-element"></div>
+        <div class="global-floating-element"></div>
+        <div class="global-floating-element"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="../imgs/logo.png" alt="ByteBunny Logo" class="logo-img">
+                <span class="logo-text">ByteBunny</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../../index.html" class="nav-link">Home</a></li>
+                <li><a href="../../index.html#features" class="nav-link">Features</a></li>
+                <li><a href="../../index.html#programs" class="nav-link">Programs</a></li>
+                <li><a href="../../index.html#packages" class="nav-link">Packages</a></li>
+                <li><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="user-menu" id="userMenu">
+                    <button class="user-menu-toggle" id="userMenuToggle">
+                        <img src="../imgs/default-avatar.png" alt="User Avatar" class="user-avatar" id="userAvatar">
+                        <span class="username" id="usernameDisplay">Loading...</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <a href="#" class="dropdown-item" id="profileLink">
+                            <i class="fas fa-user"></i> Profile
+                        </a>
+                        <a href="#" class="dropdown-item" id="settingsLink">
+                            <i class="fas fa-cog"></i> Settings
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Container -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar" id="dashboardSidebar">
+            <div class="sidebar-header">
+                <h3>Dashboard</h3>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#overview" class="nav-item active" data-section="overview">
+                    <i class="fas fa-chart-pie"></i>
+                    <span>Overview</span>
+                </a>
+                <a href="#licenses" class="nav-item" data-section="licenses">
+                    <i class="fas fa-key"></i>
+                    <span>My Licenses</span>
+                </a>
+                <a href="#downloads" class="nav-item" data-section="downloads">
+                    <i class="fas fa-download"></i>
+                    <span>Downloads</span>
+                </a>
+                <a href="#billing" class="nav-item" data-section="billing">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Billing</span>
+                </a>
+                <a href="#profile" class="nav-item" data-section="profile">
+                    <i class="fas fa-user-edit"></i>
+                    <span>Profile</span>
+                </a>
+                <a href="#support" class="nav-item" data-section="support">
+                    <i class="fas fa-life-ring"></i>
+                    <span>Support</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Loading Screen -->
+            <div class="loading-screen" id="loadingScreen">
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                    <p>Loading your dashboard...</p>
+                </div>
+            </div>
+
+            <!-- Overview Section -->
+            <section class="dashboard-section active" id="overview">
+                <div class="section-header">
+                    <h2>Dashboard Overview</h2>
+                    <p>Welcome back! Here's your account summary.</p>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-key"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="activeLicenses">0</h3>
+                            <p>Active Licenses</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="totalDownloads">0</h3>
+                            <p>Total Downloads</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="memberSince">N/A</h3>
+                            <p>Member Since</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="membershipStatus">Free</h3>
+                            <p>Membership</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <h3>Quick Actions</h3>
+                    <div class="actions-grid">
+                        <button class="action-btn" onclick="showSection('licenses')">
+                            <i class="fas fa-key"></i>
+                            <span>View Licenses</span>
+                        </button>
+                        <button class="action-btn" onclick="showSection('downloads')">
+                            <i class="fas fa-download"></i>
+                            <span>Download Files</span>
+                        </button>
+                        <button class="action-btn" onclick="window.open('index.html#packages', '_blank')">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Buy License</span>
+                        </button>
+                        <button class="action-btn" onclick="showSection('support')">
+                            <i class="fas fa-life-ring"></i>
+                            <span>Get Support</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="recent-activity">
+                    <h3>Recent Activity</h3>
+                    <div class="activity-list" id="activityList">
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-spinner fa-spin"></i>
+                            </div>
+                            <div class="activity-content">
+                                <p>Loading recent activity...</p>
+                                <span class="activity-time">Just now</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notifications -->
+                <div class="notifications-panel">
+                    <h3>Notifications</h3>
+                    <div class="notifications-list" id="notificationsList">
+                        <div class="notification-item">
+                            <div class="notification-icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div class="notification-content">
+                                <p>Loading notifications...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Licenses Section -->
+            <section class="dashboard-section" id="licenses">
+                <div class="section-header">
+                    <h2>My Licenses</h2>
+                    <p>Manage your active licenses and view expiration dates.</p>
+                </div>
+
+                <div class="licenses-container">
+                    <div class="licenses-grid" id="licensesGrid">
+                        <div class="loading-placeholder">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Loading your licenses...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Downloads Section -->
+            <section class="dashboard-section" id="downloads">
+                <div class="section-header">
+                    <h2>Downloads</h2>
+                    <p>Access your purchased software and download history.</p>
+                </div>
+
+                <div class="downloads-container">
+                    <div class="download-categories">
+                        <button class="category-btn active" data-category="all">All Downloads</button>
+                        <button class="category-btn" data-category="selfbot">Selfbot Tools</button>
+                        <button class="category-btn" data-category="admin">Admin Tools</button>
+                        <button class="category-btn" data-category="plugins">Plugins</button>
+                    </div>
+
+                    <div class="downloads-grid" id="downloadsGrid">
+                        <div class="loading-placeholder">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Loading available downloads...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Profile Section -->
+            <section class="dashboard-section" id="profile">
+                <div class="section-header">
+                    <h2>Profile Settings</h2>
+                    <p>Update your account information and preferences.</p>
+                </div>
+
+                <div class="profile-container">
+                    <form class="profile-form" id="profileForm">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="discordId">Discord ID</label>
+                            <input type="text" id="discordId" name="discordId" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="bio">Bio</label>
+                            <textarea id="bio" name="bio" rows="3" placeholder="Tell us about yourself..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update Profile</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Support Section -->
+            <section class="dashboard-section" id="support">
+                <div class="section-header">
+                    <h2>Support Center</h2>
+                    <p>Get help with your account and our products.</p>
+                </div>
+
+                <div class="support-container">
+                    <div class="support-options">
+                        <div class="support-card">
+                            <div class="support-icon">
+                                <i class="fab fa-discord"></i>
+                            </div>
+                            <h3>Discord Support</h3>
+                            <p>Join our Discord server for instant support and community help.</p>
+                            <a href="#" class="btn btn-secondary">Join Discord</a>
+                        </div>
+                        <div class="support-card">
+                            <div class="support-icon">
+                                <i class="fas fa-ticket-alt"></i>
+                            </div>
+                            <h3>Submit Ticket</h3>
+                            <p>Create a support ticket for technical issues or billing questions.</p>
+                            <button class="btn btn-primary" onclick="openTicketModal()">Create Ticket</button>
+                        </div>
+                        <div class="support-card">
+                            <div class="support-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <h3>Documentation</h3>
+                            <p>Browse our comprehensive guides and tutorials.</p>
+                            <a href="#" class="btn btn-secondary">View Docs</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Login Modal (shown if not authenticated) -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Login Required</h2>
+                <button class="modal-close" onclick="closeModal('loginModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                    <p class="form-footer">
+                        Don't have an account? <a href="#" onclick="showRegisterModal()">Sign up</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create Account</h2>
+                <button class="modal-close" onclick="closeModal('registerModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="regUsername">Username</label>
+                        <input type="text" id="regUsername" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regEmail">Email</label>
+                        <input type="email" id="regEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regDiscordId">Discord ID</label>
+                        <input type="text" id="regDiscordId" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regPassword">Password</label>
+                        <input type="password" id="regPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regConfirmPassword">Confirm Password</label>
+                        <input type="password" id="regConfirmPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Create Account</button>
+                    <p class="form-footer">
+                        Already have an account? <a href="#" onclick="showLoginModal()">Login</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
